@@ -17,7 +17,6 @@ export default function NotaEditor({mostraNotas}) {
       texto: texto,
     }
     await adicionaNota(umaNota)
-    console.log(umaNota)
     mostraNotas()
   }
 
