@@ -1,16 +1,16 @@
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
-export function Nota({item}) {
+export function Nota({item, setNotaSelecionada}) {
   const categorias = {Pessoal: "#FF924F", Outros: "#00911F", Trabalho: "#2F71EB"}
   const estilos = styleFunction(categorias[item.categoria]) //vai ser recebido pelo banco de dados
   
   return (
-    <View style={estilos.cartao}>
+    <TouchableOpacity style={estilos.cartao} onPress={() => setNotaSelecionada(item)} /* altera valor da nota */ > 
       <Text style={estilos.titulo}>{item.titulo} </Text>
       <Text style={estilos.categoria}>{item.categoria} </Text>
       <Text style={estilos.texto} numberOfLines={5}>{item.texto}</Text>
-    </View>
+    </TouchableOpacity>
   )
 }
 
