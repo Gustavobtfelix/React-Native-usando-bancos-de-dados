@@ -3,7 +3,7 @@ import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView 
 import { Picker } from "@react-native-picker/picker"
 import { adicionaNota } from "../servicos/Notas"
 
-export default function NotaEditor({mostraNotas, notaSelecionada}) {
+export default function NotaEditor({mostraNotas, notaSelecionada, setNotaSelecionada}) {
   useEffect(() => {
     if(notaSelecionada.id)
     preencheModal()
@@ -32,6 +32,13 @@ export default function NotaEditor({mostraNotas, notaSelecionada}) {
     setModalVisivel(true)
   }
 
+  function limpaModal() {
+    setTitulo("")
+    setCategoria("Pessoal")
+    setTexto("")
+    setNotaSelecionada({})
+    setModalVisivel(false)
+  }
   return(
     <>
       <Modal
@@ -73,7 +80,7 @@ export default function NotaEditor({mostraNotas, notaSelecionada}) {
                 <TouchableOpacity style={estilos.modalBotaoSalvar} onPress={() => {salvaNota()}}>
                   <Text style={estilos.modalBotaoTexto}>Salvar</Text>
                 </TouchableOpacity>
-                <TouchableOpacity style={estilos.modalBotaoCancelar} onPress={() => {setModalVisivel(false)}}>
+                <TouchableOpacity style={estilos.modalBotaoCancelar} onPress={() => {limpaModal()}}>
                   <Text style={estilos.modalBotaoTexto}>Cancelar</Text>
                 </TouchableOpacity>
               </View>
