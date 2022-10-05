@@ -3,6 +3,7 @@ import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView 
 
 export default function NotaEditor({mostraNotas}) {
 
+  const [titulo, setTitulo] = useState("")
   const [texto, setTexto] = useState("")
   const [modalVisivel, setModalVisivel] = useState(false)
 
@@ -27,6 +28,13 @@ export default function NotaEditor({mostraNotas}) {
           <ScrollView showsVerticalScrollIndicator={false}>
             <View style={estilos.modal}>
               <Text style={estilos.modalTitulo}>Criar nota</Text>
+              <Text style={estilos.modalSubTitulo}>Título da nota</Text>
+              <TextInput 
+                style={estilos.modalInput}
+                onChangeText={novoTitulo => setTitulo(novoTitulo)}
+                placeholder="Digite um título"
+                value={titulo}/>
+              
               <Text style={estilos.modalSubTitulo}>Conteúdo da nota</Text>
               <TextInput 
                 style={estilos.modalInput}
