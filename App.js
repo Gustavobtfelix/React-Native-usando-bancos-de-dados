@@ -17,7 +17,7 @@ export default function App() {
   async function mostraNotas() {
     const todasNotas = await buscaNotas()
     setNotas(todasNotas)
-    console.log(todasNotas)
+    // console.log(todasNotas)
   }
 
   return (
