@@ -1,6 +1,6 @@
 import React, { useState } from "react"
 import { Modal, View, Text, TextInput, TouchableOpacity, StyleSheet, ScrollView } from "react-native"
-import {Picker} from "@react-native-picker/picker"
+import { Picker } from "@react-native-picker/picker"
 import { adicionaNota } from "../servicos/Notas"
 
 export default function NotaEditor({mostraNotas}) {
@@ -43,10 +43,10 @@ export default function NotaEditor({mostraNotas}) {
                 <Picker
                   selectedValue={categoria}
                   onValueChange={novaCategoria => setCategoria(novaCategoria)}>
-                    <Picker.Item label="Pessoal" value="Pessoal" />
-                    <Picker.Item label="Trabalho" value="Trabalho" />
-                    <Picker.Item label="Outros" value="Outros" />
-                  </Picker>                  
+                    <Picker.Item label="Pessoal" value="Pessoal"/>
+                    <Picker.Item label="Trabalho" value="Trabalho"/>
+                    <Picker.Item label="Outros" value="Outros"/>
+                </Picker>
               </View>
               
               <Text style={estilos.modalSubTitulo}>Conteúdo da nota</Text>
